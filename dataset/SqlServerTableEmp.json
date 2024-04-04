@@ -1,0 +1,42 @@
+{
+	"name": "SqlServerTableEmp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerLink",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "FirstName",
+				"type": "varchar"
+			},
+			{
+				"name": "LastName",
+				"type": "varchar"
+			},
+			{
+				"name": "Email",
+				"type": "varchar"
+			},
+			{
+				"name": "Address",
+				"type": "varchar"
+			},
+			{
+				"name": "City",
+				"type": "varchar"
+			},
+			{
+				"name": "DOB",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "Priyadharshini",
+			"table": "Employee"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

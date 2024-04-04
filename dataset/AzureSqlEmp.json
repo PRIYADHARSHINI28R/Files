@@ -1,0 +1,17 @@
+{
+	"name": "AzureSqlEmp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseLink",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Priyadharshini",
+			"table": "Employee"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

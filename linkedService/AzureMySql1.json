@@ -1,0 +1,12 @@
+{
+	"name": "AzureMySql1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureMySql",
+		"typeProperties": {
+			"connectionString": "server=azureserver28.database.windows.net;port=3306;database=AzureDB;uid=Priyadharshini;sslmode=1;usesystemtruststore=0",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDFDQUI4NUZGLTIyMzktNDA3Mi1BNDE4LUM0RUEzRTI3QTJDMl80MjdjNTY1Ni05YzM4LTQzYmYtYTQyNC0wZWVkMmJjNmE0MzEiDQp9"
+		}
+	}
+}

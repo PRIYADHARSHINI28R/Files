@@ -1,0 +1,9 @@
+{
+	"name": "PriyadharshiniADF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c3b145ff-08e1-48cb-aa6c-5a1972270fa6",
+		"tenantId": "d83a6143-104d-46a7-987d-230c352019f1"
+	}
+}

@@ -1,0 +1,48 @@
+{
+	"name": "DelimitedText5",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SRCAzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "employee"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Lem",
+				"type": "String"
+			},
+			{
+				"name": "Boissier",
+				"type": "String"
+			},
+			{
+				"name": "lboissier@sf_tuts.com",
+				"type": "String"
+			},
+			{
+				"name": "3002 Ruskin Trail",
+				"type": "String"
+			},
+			{
+				"name": "Shikārpur",
+				"type": "String"
+			},
+			{
+				"name": "8/25/2017",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,16 @@
+{
+	"name": "SRCAzureBlobStorage1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=adftrainingadls2024;",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJhOTliNmZkMS01NDQyLTRkMjEtYWQxNC0xMjVjN2EwNGM5YmIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IRADF",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

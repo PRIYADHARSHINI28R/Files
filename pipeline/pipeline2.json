@@ -1,0 +1,118 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Valueforx",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "x",
+					"value": "hello"
+				}
+			},
+			{
+				"name": "returnValueVariable",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "pipelineReturnValue",
+					"value": [
+						{
+							"key": "y",
+							"value": {
+								"type": "String",
+								"content": "hi"
+							}
+						}
+					],
+					"setSystemVariable": true
+				}
+			},
+			{
+				"name": "subdatevariable",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "abc",
+					"value": {
+						"value": "@subtractFromTime(utcNow(),10,'month')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "ArrayVariable",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "arrayelement",
+					"value": [
+						"1",
+						"2",
+						"3",
+						"4",
+						"5"
+					]
+				}
+			},
+			{
+				"name": "currentdate",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "currentDate",
+					"value": {
+						"value": "@utcnow()",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"x": {
+				"type": "String"
+			},
+			"y": {
+				"type": "Integer"
+			},
+			"abc": {
+				"type": "String"
+			},
+			"currentDate": {
+				"type": "String"
+			},
+			"arrayelement": {
+				"type": "Array"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-04-03T05:52:44Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

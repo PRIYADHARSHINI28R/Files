@@ -1,0 +1,16 @@
+{
+	"name": "SqlServerLink",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=10.10.200.207;initial catalog=ADFTrainingDB;user id=adftraining",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1MjE2NGMxZS1mODIyLTRlNTYtYTI4ZS01YTc5MmNlNjRmYjgiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IRADF",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

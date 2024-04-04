@@ -1,0 +1,16 @@
+{
+	"name": "AzureSqlDatabaseLink",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=azureserver28.database.windows.net;initial catalog=AzureDB;user id=priyadharshini",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIyN2U2YjI4ZS05NTNiLTRiMjAtYTBlZS0yYjdiNzQ2MDdkMGIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IRADF",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
