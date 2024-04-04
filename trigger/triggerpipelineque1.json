@@ -1,0 +1,24 @@
+{
+	"name": "triggerpipelineque1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipelineque1",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2024-04-04T03:10:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
