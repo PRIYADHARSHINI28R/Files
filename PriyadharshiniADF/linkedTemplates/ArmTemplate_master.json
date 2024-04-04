@@ -31,6 +31,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'priBlobStorage'"
 		},
+		"AzureSqlDatabase2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase2'"
+		},
+		"AzureSqlDatabasead_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabasead'"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -67,11 +75,11 @@
 					"priBlobStorage_connectionString": {
 						"value": "[parameters('priBlobStorage_connectionString')]"
 					},
-					"AzureSqlDatabaseLink_connectionString": {
-						"value": "[parameters('AzureSqlDatabaseLink_connectionString')]"
+					"AzureSqlDatabase2_connectionString": {
+						"value": "[parameters('AzureSqlDatabase2_connectionString')]"
 					},
-					"SRCAzureBlobStorage1_connectionString": {
-						"value": "[parameters('SRCAzureBlobStorage1_connectionString')]"
+					"AzureSqlDatabasead_connectionString": {
+						"value": "[parameters('AzureSqlDatabasead_connectionString')]"
 					}
 				}
 			},
@@ -90,6 +98,12 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"AzureSqlDatabaseLink_connectionString": {
+						"value": "[parameters('AzureSqlDatabaseLink_connectionString')]"
+					},
+					"SRCAzureBlobStorage1_connectionString": {
+						"value": "[parameters('SRCAzureBlobStorage1_connectionString')]"
 					},
 					"SqlServerLink_connectionString": {
 						"value": "[parameters('SqlServerLink_connectionString')]"
@@ -118,6 +132,26 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'PriyadharshiniADF_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "PriyadharshiniADF_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'PriyadharshiniADF_ArmTemplate_2')]"
 			]
 		}
 	]

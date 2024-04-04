@@ -19,13 +19,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'priBlobStorage'"
 		},
-		"AzureSqlDatabaseLink_connectionString": {
+		"AzureSqlDatabase2_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabaseLink'"
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase2'"
 		},
-		"SRCAzureBlobStorage1_connectionString": {
+		"AzureSqlDatabasead_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'SRCAzureBlobStorage1'"
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabasead'"
 		}
 	},
 	"variables": {
@@ -201,6 +201,32 @@
 			"properties": {
 				"type": "SelfHosted",
 				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureSqlDatabase2_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabasead')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureSqlDatabasead_connectionString')]"
+				}
 			},
 			"dependsOn": []
 		},
@@ -997,44 +1023,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/priBlobStorage')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabaseLink')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureSqlDatabaseLink_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "IRADF",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/IRADF')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SRCAzureBlobStorage1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('SRCAzureBlobStorage1_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "IRADF",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/IRADF')]"
 			]
 		}
 	]
