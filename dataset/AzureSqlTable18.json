@@ -1,0 +1,36 @@
+{
+	"name": "AzureSqlTable18",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabasead",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "EmployeeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "EmployeeName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Salary",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "JoiningDate",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Employee"
+		}
+	}
+}

@@ -1,0 +1,99 @@
+{
+	"name": "dataflow3",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable18",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable17",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable19",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "join1"
+				},
+				{
+					"name": "split1"
+				},
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "sort1"
+				},
+				{
+					"name": "alterRow1"
+				},
+				{
+					"name": "derivedColumn2"
+				},
+				{
+					"name": "split2"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          EmployeeID as integer,",
+				"          EmployeeName as string,",
+				"          Salary as decimal(10,2),",
+				"          JoiningDate as date",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1",
+				"source(output(",
+				"          ID as integer,",
+				"          Validdate as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source2",
+				"source1, source2 join(EmployeeID == ID,",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1",
+				"derivedColumn1 split(joinyear>2023,",
+				"     disjoint: false) ~> split1@(afterValiddate, beforevalidate)",
+				"join1 derive(joinyear = year(JoiningDate)) ~> derivedColumn1",
+				"split1@afterValiddate sort(asc(JoiningDate, true)) ~> sort1",
+				"sort1 alterRow(deleteIf(month(JoiningDate)==2)) ~> alterRow1",
+				"alterRow1 derive(SalaryRate = 0) ~> derivedColumn2",
+				"derivedColumn2 split(Salary>60000,",
+				"     disjoint: false) ~> split2@(HighRATE, LowRate)",
+				"split2@HighRATE sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+			]
+		}
+	}
+}

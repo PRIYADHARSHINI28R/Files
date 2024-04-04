@@ -1,0 +1,16 @@
+{
+	"name": "AzureSqlTable16",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseLink",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Priyadharshini ",
+			"table": "AccountDetails"
+		}
+	}
+}
